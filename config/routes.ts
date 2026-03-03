@@ -1,4 +1,6 @@
-﻿export default [
+﻿import path from "path";
+
+export default [
 	{
 		path: '/user',
 		layout: false,
@@ -48,7 +50,23 @@
 		icon: 'ShoppingCartOutlined',
 		component: './BaiTap01',
 	},
-
+	{
+		path: '/thuc-hanh-01',
+		name: 'ThucHanh01',
+		icon: 'ExperimentOutlined',
+		routes: [
+			{
+				path: '/thuc-hanh-01/bt01',
+				name: 'BaiTap01',
+				component: './TH01/BT01/Randnum',
+			},
+			{
+				path: '/thuc-hanh-01/bt02',
+				name: 'BaiTap02',
+				component: './TH01/BT02/index',
+			},
+		],
+	},	
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
