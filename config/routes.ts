@@ -1,6 +1,4 @@
-﻿import path from "path";
-
-export default [
+﻿export default [
 	{
 		path: '/user',
 		layout: false,
@@ -59,14 +57,32 @@ export default [
 				path: '/thuc-hanh-01/bt01',
 				name: 'BaiTap01',
 				component: './TH01/BT01/Randnum',
-			},
-			{
-				path: '/thuc-hanh-01/bt02',
-				name: 'BaiTap02',
-				component: './TH01/BT02/index',
-			},
+			}
+			// {
+			// 	path: '/thuc-hanh-01/bt02',
+			// 	name: 'BaiTap02',
+			// 	component: './TH01/BT02/index',
+			// },
 		],
-	},	
+	},
+	{
+		path: '/thuc-hanh-02',
+		name: 'ThucHanh02',
+		icon: 'ExperimentOutlined',
+		component: './TH02',
+		routes: [
+			{
+				path: '/thuc-hanh-02/bt01',
+				name: 'BaiTap01',
+				component: './TH02/BT01/Game',
+			},
+			// {
+			// 	path: '/thuc-hanh-02/bt02',
+			// 	name: 'BaiTap02',
+			// 	component: './TH02/BT02/system',
+			// }
+		],
+	},
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
