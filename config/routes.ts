@@ -83,6 +83,13 @@
 			// }
 		],
 	},
+	{
+		path: '/thuc-hanh-03',
+		name: 'BaiTap03',
+		icon: 'ShoppingCartOutlined',
+		component: './TH03',
+		
+	},
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
