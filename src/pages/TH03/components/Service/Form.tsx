@@ -21,7 +21,7 @@ export default ({ open, editing, onCancel, onSubmit }: Props) => {
   };
 
   return (
-    <Modal title={editing ? 'Sửa dịch vụ' : 'Thêm dịch vụ'} open={open} onOk={handleOk} onCancel={() => { form.resetFields(); onCancel(); }} okText="Lưu" cancelText="Hủy">
+    <Modal title={editing ? 'Sửa dịch vụ' : 'Thêm dịch vụ'} visible={open} onOk={handleOk} onCancel={() => { form.resetFields(); onCancel(); }} okText="Lưu" cancelText="Hủy">
       <Form form={form} layout="vertical">
         <Form.Item name="name" label="Tên dịch vụ" rules={[{ required: true, message: 'Nhập tên!' }]}>
           <Input placeholder="Nhập tên dịch vụ" />

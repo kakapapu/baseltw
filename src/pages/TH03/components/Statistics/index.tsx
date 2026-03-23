@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Card, Row, Col, Table, DatePicker, Statistic, Select } from 'antd';
 import { Appointment, Employee, Service, Review } from '../../types';
-import dayjs from 'dayjs';
+import moment from 'moment';
 
 interface Props {
   appointments: Appointment[];
@@ -11,12 +11,12 @@ interface Props {
 }
 
 export default ({ appointments, employees, services, reviews }: Props) => {
-  const [month, setMonth] = useState(dayjs());
+  const [month, setMonth] = useState(moment());
   const [viewType, setViewType] = useState<'day' | 'month'>('month');
 
   const filteredApts = useMemo(() => {
     return appointments.filter(a => {
-      if (viewType === 'month') return dayjs(a.date).format('YYYY-MM') === month.format('YYYY-MM');
+      if (viewType === 'month') return moment(a.date).format('YYYY-MM') === month.format('YYYY-MM');
       return a.date === month.format('YYYY-MM-DD');
     });
   }, [appointments, month, viewType]);
@@ -75,7 +75,7 @@ export default ({ appointments, employees, services, reviews }: Props) => {
 
       <Row gutter={16}>
         <Col span={12}>
-          <Card title="📊 Thống kê theo nhân viên">
+          <Card title="Thống kê theo nhân viên">
             <Table rowKey="id" dataSource={employeeStats} pagination={false} size="small" columns={[
               { title: 'Nhân viên', dataIndex: 'name' },
               { title: 'Số lịch', dataIndex: 'appointments', align: 'center' },
@@ -85,7 +85,7 @@ export default ({ appointments, employees, services, reviews }: Props) => {
           </Card>
         </Col>
         <Col span={12}>
-          <Card title="📊 Thống kê theo dịch vụ">
+          <Card title="Thống kê theo dịch vụ">
             <Table rowKey="id" dataSource={serviceStats} pagination={false} size="small" columns={[
               { title: 'Dịch vụ', dataIndex: 'name' },
               { title: 'Số lượt', dataIndex: 'count', align: 'center' },

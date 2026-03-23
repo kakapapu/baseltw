@@ -24,7 +24,7 @@ export default ({ open, appointments, employees, services, onCancel, onSubmit }:
   };
 
   return (
-    <Modal title="Thêm đánh giá" open={open} onOk={handleOk} onCancel={() => { form.resetFields(); onCancel(); }} okText="Gửi" cancelText="Hủy">
+    <Modal title="Thêm đánh giá" visible={open} onOk={handleOk} onCancel={() => { form.resetFields(); onCancel(); }} okText="Gửi" cancelText="Hủy">
       <Form form={form} layout="vertical">
         <Form.Item name="appointmentId" label="Chọn lịch hẹn" rules={[{ required: true, message: 'Chọn lịch hẹn!' }]}>
           <Select placeholder="Chọn lịch hẹn đã hoàn thành" options={appointments.map(a => ({ value: a.id, label: getLabel(a) }))} />

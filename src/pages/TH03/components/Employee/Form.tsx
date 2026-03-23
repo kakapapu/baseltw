@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Modal, Form, Input, InputNumber, Select, TimePicker } from 'antd';
 import { Employee } from '../../types';
-import dayjs from 'dayjs';
+import moment from 'moment';
 
 const dayOptions = [
   { value: 'Mon', label: 'Thứ 2' },
@@ -27,7 +27,7 @@ export default ({ open, editing, onCancel, onSubmit }: Props) => {
     if (editing) {
       form.setFieldsValue({
         ...editing,
-        workHours: [dayjs(editing.workHours.start, 'HH:mm'), dayjs(editing.workHours.end, 'HH:mm')]
+        workHours: [moment(editing.workHours.start, 'HH:mm'), moment(editing.workHours.end, 'HH:mm')]
       });
     } else {
       form.resetFields();
@@ -46,7 +46,7 @@ export default ({ open, editing, onCancel, onSubmit }: Props) => {
   };
 
   return (
-    <Modal title={editing ? 'Sửa nhân viên' : 'Thêm nhân viên'} open={open} onOk={handleOk} onCancel={() => { form.resetFields(); onCancel(); }} okText="Lưu" cancelText="Hủy">
+    <Modal title={editing ? 'Sửa nhân viên' : 'Thêm nhân viên'} visible={open} onOk={handleOk} onCancel={() => { form.resetFields(); onCancel(); }} okText="Lưu" cancelText="Hủy">
       <Form form={form} layout="vertical">
         <Form.Item name="name" label="Tên nhân viên" rules={[{ required: true, message: 'Nhập tên!' }]}>
           <Input placeholder="Nhập tên nhân viên" />
