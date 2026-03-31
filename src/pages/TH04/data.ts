@@ -1,9 +1,9 @@
 
 export const KEYS = {
-  BOOKS: "vb_books",           
-  DECISIONS: "vb_decisions",   
-  FIELDS: "vb_fields",         
-  DIPLOMAS: "vb_diplomas",     
+  BOOKS: "vb_books",
+  DECISIONS: "vb_decisions",
+  FIELDS: "vb_fields",
+  DIPLOMAS: "vb_diplomas",
 } as const;
 
 
