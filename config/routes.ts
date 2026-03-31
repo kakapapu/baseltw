@@ -96,6 +96,12 @@
 		icon: 'ExperimentOutlined',
 		component: './TH04',
 	},
+	{
+		path: '/thuc-hanh-05',
+		name: 'ThucHanh05',
+		icon: 'ExperimentOutlined',
+		component: './TH05',
+	},
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
