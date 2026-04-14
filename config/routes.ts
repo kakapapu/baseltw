@@ -1,4 +1,6 @@
-﻿export default [
+﻿
+
+export default [
 	{
 		path: '/user',
 		layout: false,
@@ -107,6 +109,12 @@
 		name: 'ThucHanh06',
 		icon: 'ExperimentOutlined',
 		component: './TH06',
+	},
+	{
+		path: '/kt-gk',
+		name: 'KTGK',
+		icon: 'ExperimentOutlined',
+		component: './KTGK',
 	},
 	// DANH MUC HE THONG
 	// {
