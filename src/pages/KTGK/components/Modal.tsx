@@ -14,7 +14,7 @@ interface Props {
     onOk: () => void;
 }
 
-const KhoaHocModal: React.FC<Props> = ({ open, Edit, form, onCancel, onOk }) => (
+const KhoaHocModal: React.FC<Props> = ({ open, Edit, form, onCancel, onOk, dskhoahoc, EditId }) => (
     <Modal
         title={Edit ? "Sửa khóa học" : "Thêm khóa học"}
         visible={open}
@@ -31,6 +31,16 @@ const KhoaHocModal: React.FC<Props> = ({ open, Edit, form, onCancel, onOk }) => 
                 rules={[
                     { required: true, message: 'Vui lòng nhập tên khóa học!' },
                     { max: 100, message: 'Tối đa 100 ký tự!' },
+                    {
+                        validator: (_, value) => {
+                            if (!value) return Promise.resolve();
+                            const trung = dskhoahoc.find(
+                                (kh) => kh.name.trim().toLowerCase() === value.trim().toLowerCase() && kh.id !== EditId,
+                            );
+                            if (trung) return Promise.reject('Tên khóa học đã tồn tại!');
+                            return Promise.resolve();
+                        },
+                    },
                 ]}
             >
                 <Input maxLength={100} />

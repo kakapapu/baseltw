@@ -17,8 +17,8 @@ const QuanLy: React.FC = () => {
     const data = listkhoahoc.filter(e => {
         const Ten = e.name.toLowerCase().includes(search.toLowerCase());
         const GV = locGV ? e.giangvien === locGV : true;
-        const State = locState ? e.state === locState : true;
-        return Ten && GV && State;
+        const ST = locState ? e.state === locState : true;
+        return Ten && GV && ST;
     });
 
     const mo = (rec?: Khoahoc) => {
@@ -34,7 +34,10 @@ const QuanLy: React.FC = () => {
 
     const save = () => {
         form.validateFields().then(values => {
-            const dup = listkhoahoc.find((kh) => kh.name.toLowerCase() === values.name.toLowerCase() && kh.id !== Edit?.id);
+            const tenMoi = (values.name || '').trim().toLowerCase();
+            const dup = listkhoahoc.find(
+                (kh) => kh.name.trim().toLowerCase() === tenMoi && kh.id !== Edit?.id
+            );
             if (dup) {
                 message.error("Tên khóa học đã tồn tại!");
                 return;
