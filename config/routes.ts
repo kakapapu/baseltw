@@ -111,6 +111,12 @@ export default [
 		component: './TH06',
 	},
 	{
+		path: '/thuc-hanh-07',
+		name: 'ThucHanh07',
+		icon: 'ExperimentOutlined',
+		component: './TH07',
+	},
+	{
 		path: '/kt-gk',
 		name: 'KTGK',
 		icon: 'ExperimentOutlined',
