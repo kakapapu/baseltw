@@ -122,6 +122,12 @@ export default [
 		icon: 'ExperimentOutlined',
 		component: './KTGK',
 	},
+	{
+		path: '/thuc-hanh-09',
+		name: 'ThucHanh09',
+		icon: 'ExperimentOutlined',
+		component: './TH09',
+	},
 	// DANH MUC HE THONG
 	// {
 	// 	name: 'DanhMuc',
